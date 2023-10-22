@@ -13,135 +13,145 @@
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 999;
+    z-index: 10;
 
+    & .header-inner {
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: auto;
+        max-width: 1080px;
+
+        & .header-title {
+            flex: 0;
+            margin-right: auto;
+
+            & a {
+                display: block;
+                padding: 16px 0px;
+            }
+        }
+
+        & .header-menu {
+            flex: 1;
+
+            & .header-nav-list {
+                display: flex;
+                justify-content: flex-end;
+
+                & .header-nav-item {
+                    padding: 0 10px;
+
+                    &-link {
+                        display: block;
+                        padding: 24px 12px;
+
+                        &-text {
+                            font-size: 20px;
+                            font-weight: 800;
+                            position: relative;
+                            color: #2D3439;
+                            line-height: 24px;
+
+                            &:hover {
+                                color: #7070FF;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// main {
+//     width: 100vw;
+//     height: 100vh;
+//     background-color: #000000;
+// }
+
+main {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+
+    // background-color: #C2C2FF;
     & .container {
         width: 100%;
         height: 100%;
-        // background-color: rgba(135, 207, 235, 0.541);
+        position: relative;
+
+        & .img_block {
+            position: absolute;
+            top: 60%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+            & .family {
+                display: block;
+                margin: 0 auto;
+                width: 712px;
+            }
+        }
     }
-}
-.header-inner {
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    margin: auto;
-    max-width: 1070px;
-    position: relative;
-}
-
-.header-title {
-    position: absolute;
-    left: 0;
-    margin: 0;
-    padding: 0;
-    height: 100%;
-}
-
-.header-bg {
-    background-color: #fff;
-}
-
-.header-title a svg path {
-    fill: #fff;
-}
-
-.header-color a svg path {
-    fill: #5edfdf;
-}
-
-.header-title a{
-    display: block;
-    padding: 20px 22px;
-}
-
-.header-menu {
-    width: auto;
-    height: auto;
-}
-
-.header-nav {
-    padding-bottom: 12px;
-    transition: 0.5s;
-}
-
-.header-nav-list {
-    display: flex;
-    text-align: center;
-}
-
-.header-nav-item {
-    padding: 0 10px;
-}
-
-.header-nav-item-link{
-    display: block;
-    padding: 24px 12px;
-}
-
-.header-nav-item-link-text {
-    font-size: 18px;
-    position: relative;
-    color: #fff;
-    line-height: 20px;
-    letter-spacing: -1px;
-}
-#background1, #background2 {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-  
-     /* 배경 이미지 설정 */
-     background-size: cover;
-  }
-  #background1 {
-    background-image: url('../../../public/images/main_background1.png');
-    opacity: 0.35; // 초기 투명도 설정
- }
- .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.35); /* 검은 배경의 색상과 투명도 설정 */
-}
- #background2 {
-    background-image: url('../../../public/images/image2.png');
-    opacity: 0; // 초기 투명도 설정
- }
- 
-.section {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 2em;
 }
 
 #section1 {
-    background-color: #3498db;
-    color: white;
+
+    & #background1,
+    #background2 {
+        position: sticky;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+
+        /* 배경 이미지 설정 */
+        background-size: cover;
+    }
+
+    & #background1 {
+        background-image: url('../../../public/images/main_background1.png');
+        opacity: 0.35; // 초기 투명도 설정
+        transition: opacity 0.5s;
+    }
+    & .overlay1 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.35);
+        /* 검은 배경의 색상과 투명도 설정 */
+    }
+    & #background2 {
+        background-image: url('../../../public/images/image2.png');
+        opacity: 0; // 초기 투명도 설정
+        transition: opacity 0.5s;
+    }
 }
 
-#section2 {
-    background-color: #2ecc71;
-    color: white;
+#content1 {
+    width: 100vw;
+    height: 100vh;
+
+    & .container {
+        max-width: 1080px;
+        margin: auto;
+        height: 100%;
+        position: relative;
+
+        & .right_content {
+            position: absolute;
+            top: 130px;
+            left: 600px;
+            height: 720px;
+        }
+    }
 }
 
 #section3 {
     background-color: #e74c3c;
     color: white;
-}
-
-main {
-    width: 100vw;
-    height: 100vh;
-
-    & .container {
-        width: 100%;
-        height: 100%;
-    }
 }
