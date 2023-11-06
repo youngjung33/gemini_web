@@ -1,11 +1,10 @@
-// @font-face {}
-
-// $primary: #ffa906;
-// $secondary: #fff348;
-// $success: #b6dc49;
-
-// $light: #fffdf3;
-// $dark: #393939;
+html,
+body {
+    width: 100%;
+    height: 100%;
+    // overflow: hidden;
+    margin: 0;
+}
 
 .header {
     width: 100%;
@@ -39,6 +38,7 @@
             & .header-nav-list {
                 display: flex;
                 justify-content: flex-end;
+                align-items: center;
 
                 & .header-nav-item {
                     padding: 0 10px;
@@ -51,13 +51,45 @@
                             font-size: 20px;
                             font-weight: 800;
                             position: relative;
-                            color: #2D3439;
+                            color: #fff;
+                            // color: #2D3439;
                             line-height: 24px;
 
                             &:hover {
                                 color: #7070FF;
+                                text-decoration: underline;
                             }
                         }
+
+                        & .background_white {
+                            color: #2D3439;
+                            font-weight: 800;
+
+                            &:hover {
+                                color: #7070FF;
+                                text-decoration: underline;
+                            }
+                        }
+
+                    }
+                }
+
+                & .button {
+                    cursor: pointer;
+                    width: 160px;
+                    height: 51px;
+                    border: 1px solid #7070FF;
+                    background-color: #7070FF;
+                    border-radius: 10px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    & .button_text {
+                        font-size: 18px;
+                        color: white;
+                        font-weight: 800;
+                        position: relative;
                     }
                 }
             }
@@ -65,93 +97,236 @@
     }
 }
 
-// main {
-//     width: 100vw;
-//     height: 100vh;
-//     background-color: #000000;
-// }
-
-main {
+.section {
     width: 100vw;
     height: 100vh;
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    // color: white;
+    overflow-y: auto;
+    // opacity: 0;
+    background-size: cover;
+    /* 배경 이미지 크기 조절을 위해 추가 */
+    transition: background-image 0.5s ease;
+    /* 배경 이미지 전환을 위해 추가 */
 
-    // background-color: #C2C2FF;
     & .container {
         width: 100%;
+        max-width: 1080px;
         height: 100%;
         position: relative;
-
-        & .img_block {
-            position: absolute;
-            top: 60%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-
-            & .family {
-                display: block;
-                margin: 0 auto;
-                width: 712px;
-            }
-        }
+        // margin: auto;
+        // background-color: #7070FF;
     }
+
 }
+
+// .visible {
+//     opacity: 1;
+// }
+// .background_black{}
 
 #section1 {
-
-    & #background1,
-    #background2 {
-        position: sticky;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100vh;
-
-        /* 배경 이미지 설정 */
-        background-size: cover;
-    }
-
-    & #background1 {
-        background-image: url('../../../public/images/main_background1.png');
-        opacity: 0.35; // 초기 투명도 설정
-        transition: opacity 0.5s;
-    }
-    & .overlay1 {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.35);
-        /* 검은 배경의 색상과 투명도 설정 */
-    }
-    & #background2 {
-        background-image: url('../../../public/images/image2.png');
-        opacity: 0; // 초기 투명도 설정
-        transition: opacity 0.5s;
-    }
+    background: url('../../../public/images/main_background1.png') no-repeat;
+    background-size: cover;
 }
 
-#content1 {
-    width: 100vw;
-    height: 100vh;
+#section2 .container {
+    display: flex;
+    position: relative;
 
-    & .container {
-        max-width: 1080px;
-        margin: auto;
-        height: 100%;
+    & >.left_content {
+        width: 50%;
+        position: absolute;
+        left: 0;
+        top: 20%;
+        animation: slide-up 1s ease-out, fade-in 2s ease-out forwards;
+        // transform: translate(-50%, -50%);
+
+        & #text1 {
+            font-size: 1vw;
+            text-align: left;
+            font-weight: bold;
+            color: #7070FF;
+        }
+
+        & #text2 {
+            font-size: 2.5vw;
+            font-weight: bold;
+            text-align: left;
+        }
+
+        & #text3 {
+            font-size: 2.5vw;
+            font-weight: bold;
+            text-align: left;
+            padding-bottom: 5%;
+        }
+
+        & #text4 {
+            font-size: 1.2vw;
+            text-align: left;
+            font-weight: bold;
+            color: #434E56;
+        }
+
+        & #text4 {
+            font-size: 1.2vw;
+            text-align: left;
+            font-weight: bold;
+            color: #434E56;
+
+            & .text-background {
+                background-color: #B6EDE5;
+                color: #434E56;
+            }
+        }
+
+    }
+
+    & >.right_content {
+        width: 50%;
         position: relative;
+        animation: fade-in 2s ease-out forwards;
 
-        & .right_content {
+        // background-color: #7070FF;
+        & img {
             position: absolute;
             top: 130px;
             left: 600px;
             height: 720px;
+            animation: slide-up 1s ease-out, fade-in 2s ease-out forwards;
         }
     }
 }
 
+@keyframes slide-up {
+    from {
+        transform: translateY(10%);
+        /* 시작 시점에는 텍스트가 아래에 위치 */
+    }
+
+    to {
+        transform: translateY(0);
+        /* 종료 시점에는 텍스트가 원래 위치에 돌아옴 */
+    }
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        /* 시작 시점에는 텍스트가 보이지 않게 설정 */
+    }
+    to {
+        opacity: 1;
+        /* 종료 시점에는 텍스트가 완전히 보이게 설정 */
+
+    }
+}
+
 #section3 {
-    background-color: #e74c3c;
-    color: white;
+    background: url('../../../public/images/section3_background.png') no-repeat;
+    background-size: cover;
+    width: 100%;
+    opacity: 1;
+    display: block;
+
+    & .overlay {
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0);
+        z-index: 1;
+    }
+
+    & .container {
+        & .text_box {
+            width: 100%;
+            position: relative;
+            top: 30%;
+            left: 35%;
+            z-index: 3;
+            // transform: translate(-50%, -50%);
+            // opacity: 1;
+
+            & #section3_move_text1,
+            #section3_move_text2 {
+                position: relative;
+                color: #fff;
+                font-size: 56px;
+                text-align: center;
+                font-weight: 700;
+                transform: translateY(100%);
+                opacity: 0;
+            }
+        }
+
+    }
+}
+
+#section4 {
+    background-color: bisque;
+}
+
+#section5 {
+    background-color: forestgreen;
+}
+
+#section6 {
+    background-color: red;
+}
+
+#section7 {
+    background-color: black;
+}
+
+#section8 {
+    background-color: blue;
+}
+
+#section9 {
+    background-color: bisque;
+}
+
+#section10 {
+    background-color: forestgreen;
+}
+
+#section11 {
+    background-color: red;
+}
+
+#section12 {
+    background-color: black;
+}
+
+#section13 {
+    background-color: blue;
+}
+
+#section14 {
+    background-color: bisque;
+}
+
+#section15 {
+    background-color: forestgreen;
+}
+
+@keyframes slide-up {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.section .container .text_box {
+    animation: slide-up 1s forwards;
 }
