@@ -25,11 +25,7 @@ window.addEventListener('wheel', (event) => {
             });
             logo.src = './public/logo.svg'
 
-        } /* else if (currentSection == 2) {
-            ani_text.forEach((text)=>{
-                text.style.animation = 'slide-up 1s forwards, fade-in 2s forwards';
-            })
-        } */ else if (currentSection == 3 && scrollCount < 2) {
+        } else if (currentSection == 3 && scrollCount < 2) {
             headerText.forEach(text => {
                 text.classList.remove('background_white');
             });
@@ -58,8 +54,6 @@ window.addEventListener('wheel', (event) => {
             logo.src = './public/logo_white.svg'
         } else if (currentSection > 1) {
             overlay.style.backgroundColor = 'rgba(0, 0, 0, 0)';
-            section3_move_text1.style.opacity = 0;
-            section3_move_text2.style.opacity = 0;
             currentSection--;
             scrollToSection(currentSection);
         }
@@ -80,16 +74,24 @@ function scrollToSection(section) {
 
 window.addEventListener('scroll', function () {
     const section2 = document.getElementById('section2');
-    const rect = section2.getBoundingClientRect();
+    const ani_texts = document.querySelectorAll('#section2 .ani_text');
+    // 현재 스크롤 위치를 확인
+    const scrollPosition = window.scrollY;
 
-    if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
-        // 페이지가 보이는 영역에 들어왔을 때 애니메이션 실행
-        document.querySelector('#section2 .left_content').style.animationPlayState = 'running';
-        document.querySelector('#section2 .right_content img').style.animationPlayState = 'running';
-    } else {
-        // 페이지가 보이는 영역에 나가면 애니메이션 일시 중지
-        document.querySelector('#section2 .left_content').style.animationPlayState = 'paused';
-        document.querySelector('#section2 .right_content img').style.animationPlayState = 'paused';
+    // 섹션2의 위치를 확인
+    const section2Position = section2.offsetTop;
+
+    if (scrollPosition >= section2Position) {
+        console.log('2번째 섹션에 도착했습니다. 애니메이션을 실행하세요!');
+        ani_texts.forEach((text) => {
+            text.style.animation = 'slide-up 1s forwards, fade-in 2s forwards';
+        });
+    } else if (scrollPosition < section2Position) {
+        ani_texts.forEach((text) => {
+            text.style.animation = ''; // 애니메이션 속성을 초기화
+            text.style.opacity = 0; // 텍스트가 보이지 않게 설정
+            text.style.transform = 'translateY(10%)'; // 텍스트가 아래에 위치하게 설정
+        });
     }
 });
 

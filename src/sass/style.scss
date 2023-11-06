@@ -2,8 +2,9 @@ html,
 body {
     width: 100%;
     height: 100%;
-    // overflow: hidden;
+    // overflow-x: hidden;
     margin: 0;
+    box-sizing: border-box;
 }
 
 .header {
@@ -136,16 +137,13 @@ body {
 
 #section2 .container {
     display: flex;
-    position: relative;
+    align-items: center;
+    // position: relative;
+    // justify-content: space-between;
 
-    & >.left_content {
+    &>.left_content {
         width: 50%;
-        position: absolute;
-        left: 0;
-        top: 20%;
-        animation: slide-up 1s ease-out, fade-in 2s ease-out forwards;
-        // transform: translate(-50%, -50%);
-
+        margin-bottom: 300px;
         & #text1 {
             font-size: 1vw;
             text-align: left;
@@ -187,43 +185,20 @@ body {
 
     }
 
-    & >.right_content {
+    &>.right_content {
         width: 50%;
-        position: relative;
+        margin-left: 150px;
+        // position: relative;
         animation: fade-in 2s ease-out forwards;
 
         // background-color: #7070FF;
         & img {
-            position: absolute;
-            top: 130px;
-            left: 600px;
+            // position: relative;
+            // top: 130px;
+            // left: 600px;
             height: 720px;
-            animation: slide-up 1s ease-out, fade-in 2s ease-out forwards;
+            animation: slide-up 1s ease-out;
         }
-    }
-}
-
-@keyframes slide-up {
-    from {
-        transform: translateY(10%);
-        /* 시작 시점에는 텍스트가 아래에 위치 */
-    }
-
-    to {
-        transform: translateY(0);
-        /* 종료 시점에는 텍스트가 원래 위치에 돌아옴 */
-    }
-}
-
-@keyframes fade-in {
-    from {
-        opacity: 0;
-        /* 시작 시점에는 텍스트가 보이지 않게 설정 */
-    }
-    to {
-        opacity: 1;
-        /* 종료 시점에는 텍스트가 완전히 보이게 설정 */
-
     }
 }
 
@@ -233,6 +208,7 @@ body {
     width: 100%;
     opacity: 1;
     display: block;
+    overflow: hidden;
 
     & .overlay {
         position: absolute;
@@ -240,6 +216,7 @@ body {
         height: 100vh;
         background-color: rgba(0, 0, 0, 0);
         z-index: 1;
+        transition: background-color 0.5s ease;
     }
 
     & .container {
