@@ -54,6 +54,12 @@ window.addEventListener('wheel', (event) => {
             logo.src = './public/logo_white.svg'
         } else if (currentSection > 1) {
             overlay.style.backgroundColor = 'rgba(0, 0, 0, 0)';
+
+            section3_move_text1.style.animation = '';
+            section3_move_text1.style.opacity = 0;
+            section3_move_text2.style.animation = '';
+            section3_move_text2.style.opacity = 0;
+
             currentSection--;
             scrollToSection(currentSection);
         }
@@ -62,7 +68,6 @@ window.addEventListener('wheel', (event) => {
 
 function scrollToSection(section) {
     const sectionElement = document.getElementById(`section${section}`);
-
 
     if (sectionElement) {
         window.scrollTo({
